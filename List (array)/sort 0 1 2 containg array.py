@@ -32,6 +32,7 @@
 # Constraints:
 # 1 <= N <= 10^6
 # 0 <= A[i] <= 2
+'''
 def sort012(self,arr,n):
     a = {i:arr.count(i) for i in arr}
     b = []
@@ -42,6 +43,23 @@ def sort012(self,arr,n):
     if 2 in a.keys():
         b+=[2]*a[2]
     for i in range(n):
-        arr[i] = b[i] 
-
-        
+        arr[i] = b[i]
+'''
+def sort012(arr,n): # Time complexity O(N)
+    l = 0
+    m = 0
+    h = n-1
+    while m<=h:
+        if arr[m]==0:
+            arr[l],arr[m] = arr[m],arr[l]
+            l+=1
+            m+=1
+        if arr[m]==1:
+            m+=1
+        if arr[m]==2:
+            arr[h],arr[m] = arr[m],arr[h]
+            h-=1
+    print(arr)
+n = 5
+arr = [0,2,1,2,0]
+sort012(arr,n)
